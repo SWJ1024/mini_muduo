@@ -1,0 +1,65 @@
+single thread without lock 0.123651
+single thread with lock 0.296555
+name : Thread1, tid = 0 is dead
+21858----21858
+1 thread(s) with lock 0.264516
+21859----21859
+name : Thread2, tid = 21859 is dead
+21860----21860
+name : Thread3, tid = 21860 is dead
+2 thread(s) with lock 1.416748
+21861----21861
+21862----21862
+name : Thread4, tid = 21861 is dead
+21863----21863
+name : Thread5, tid = 21862 is dead
+name : Thread6, tid = 21863 is dead
+3 thread(s) with lock 1.844276
+21864----21864
+21865----21865
+21866----21866
+name : Thread7, tid = 21864 is dead
+21867----21867
+name : Thread8, tid = 21865 is dead
+name : Thread9, tid = 21866 is dead
+name : Thread10, tid = 21867 is dead
+4 thread(s) with lock 3.098553
+21868----21868
+21869----21869
+21870----21870
+21871----21871
+name : Thread11, tid = 21868 is dead
+21872----21872
+name : Thread12, tid = 21869 is dead
+name : Thread13, tid = 21870 is dead
+name : Thread14, tid = 21871 is dead
+name : Thread15, tid = 21872 is dead
+5 thread(s) with lock 5.380032
+21873----21873
+21874----21874
+21875----21875
+21876----21876
+21877----21877
+name : Thread16, tid = 21873 is dead
+21878----21878
+name : Thread17, tid = 21874 is dead
+name : Thread18, tid = 21875 is dead
+name : Thread19, tid = 21876 is dead
+name : Thread20, tid = 21877 is dead
+name : Thread21, tid = 21878 is dead
+6 thread(s) with lock 7.496258
+21879----21879
+21880----21880
+21881----21881
+21882----21882
+21883----21883
+21884----21884
+name : Thread22, tid = 21879 is dead
+21885----21885
+name : Thread23, tid = 21880 is dead
+name : Thread24, tid = 21881 is dead
+name : Thread25, tid = 21882 is dead
+name : Thread26, tid = 21883 is dead
+name : Thread27, tid = 21884 is dead
+name : Thread28, tid = 21885 is dead
+7 thread(s) with lock 9.468475
