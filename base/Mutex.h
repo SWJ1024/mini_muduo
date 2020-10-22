@@ -38,8 +38,8 @@ public:
         return &mutex_;
     }
     
-    void assignHolder() {holder_ = 0;}
-    void unassignHolder() {holder_ = CurrentThread::tid();}
+    void unassignHolder() {holder_ = 0;}
+    void assignHolder() {holder_ = CurrentThread::tid();}
 
     pid_t getholder() {return holder_;}
 

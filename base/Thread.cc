@@ -2,8 +2,6 @@
 #include <assert.h>
 #include "CurrentThread.h"
 #include <pthread.h>
-
-
 AtomicInt32 Thread::numCreated_;
 
 class MainThread{
@@ -20,7 +18,7 @@ MainThread init;
 void* startThread(void *p) {
     Thread* t = static_cast<Thread*> (p);
     t->setTid(CurrentThread::tid());
-    printf("%d----%d\n", CurrentThread::tid(), t->getTid());
+    //printf("%d----%d\n", CurrentThread::tid(), t->getTid());
     CurrentThread::t_threadName = t->getName().empty() ? "muduoThread" : t->getName().c_str();
     t->getCountDownLatch().countDown();    
     t->run();
@@ -45,8 +43,10 @@ Thread::Thread(ThreadFunc f, const string &n)
 
 Thread::~Thread() {
     if (isStart() && !join_) {
-        printf("name : %s, tid = %d is dead\n", name_.c_str(), tid_);
-        pthread_detach(pthreadId_);
+#ifdef _DEBUG
+		printf("name : %s, tid = %d is dead\n", name_.c_str(), tid_);
+#endif
+		pthread_detach(pthreadId_);
     }
 }
 
@@ -60,7 +60,7 @@ void Thread::start() {
     }
     else {
         latch_.wait();
-//        assert(tid_ > 0);
+        assert(tid_ > 0);
     }
 }
 
@@ -69,8 +69,10 @@ int Thread::join() {
     assert(isStart());
     assert(!join_);
     join_ = true;
+#ifdef _DEBUG
     printf("name : %s, tid = %d is dead\n", name_.c_str(), tid_);
-    return pthread_join(pthreadId_, NULL);
+#endif
+	return pthread_join(pthreadId_, NULL);
 }
 
 
