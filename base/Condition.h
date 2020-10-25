@@ -16,7 +16,8 @@ public:
 
     void wait() {
        mutex_.unassignHolder();
-       pthread_cond_wait(&pcond_, mutex_.getPthreadMutex()); 
+       pthread_cond_wait(&pcond_, mutex_.getPthreadMutex());
+	   mutex_.assignHolder();
     }
 
     void notify() {

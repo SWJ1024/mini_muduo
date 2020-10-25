@@ -19,7 +19,7 @@ void printString(const std::string& str)
 
 void test(int maxSize)
 {
-  printf("Test ThreadPool with max queue size = %d\n", maxSize);
+  printf("Main Thread = %d  Test ThreadPool with max queue size = %d\n", CurrentThread::tid(), maxSize);
   ThreadPool pool("MainThreadPool");
   pool.setMaxQueueSize(maxSize);
   pool.start(5);
@@ -90,7 +90,7 @@ printf("Test ThreadPool by stoping early.\n");
 
 int main()
 {
-  test(0);
+//  test(0);
   test(1);
   test(5);
   test(10);

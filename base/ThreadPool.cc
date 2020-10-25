@@ -72,6 +72,7 @@ void ThreadPool::run(Task task) {
 		while (isFull() && running_) {
 			notFull_.wait();
 		}
+
 		if (!running_) return;
 		assert(!isFull());
 		deq_.push_back(std::move(task));
@@ -80,8 +81,6 @@ void ThreadPool::run(Task task) {
 }
 
 bool ThreadPool::isFull() const {
-	if (mutex_.getholder() != CurrentThread::tid())
-		printf("%d %d\n", mutex_.getholder(), CurrentThread::tid());
 	mutex_.assertLocked();
 	return maxSize_ > 0 && maxSize_ <= deq_.size();
 }
@@ -98,7 +97,9 @@ void ThreadPool::runInThread() {
 
 ThreadPool::Task ThreadPool::take() {
 	MutexLockGuard lock(mutex_);
-	while (deq_.empty() && running_) notEmpty_.wait();
+	while (deq_.empty() && running_) {
+		notEmpty_.wait();
+	}
 	Task task;
 	if (!deq_.empty()) {
 		task = deq_.front();
