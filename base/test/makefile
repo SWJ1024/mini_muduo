@@ -1,5 +1,6 @@
 objects := $(wildcard ../*.cc)
-target := Thread_test.cc
+#target := ThreadPool_test.cc
+target := Date_unittest.cc
 
 ver = debug
 ifeq ($(ver), debug)

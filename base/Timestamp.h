@@ -17,7 +17,8 @@ public:
     string toFormattedString(bool showMicroseconds = true) const;
     int64_t getmicroSecond() const;
     time_t getSecond() const;
-
+	bool valid() const {return microSeconds > 0;}
+	static Timestamp invalid() {return Timestamp();}
     static const int M = 1000*1000;
 private:
     int64_t microSeconds;

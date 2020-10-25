@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <linux/unistd.h>
 #include <sys/syscall.h>
+#include "Timestamp.h"
 
 
 namespace CurrentThread {
@@ -32,6 +33,15 @@ namespace CurrentThread {
     inline bool isMainThread() {
         return tid() == gettid();
     }
+
+	
+	inline void sleepUsec(int64_t usec)
+	{
+		  struct timespec ts = { 0, 0 };
+		    ts.tv_sec = static_cast<time_t>(usec / Timestamp::M);
+			  ts.tv_nsec = static_cast<long>(usec % Timestamp::M * 1000);
+			    ::nanosleep(&ts, NULL);
+	}
 }
 
 #endif
