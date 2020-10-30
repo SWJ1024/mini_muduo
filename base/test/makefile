@@ -1,4 +1,4 @@
-objects := $(wildcard ../*.cc)
+objects := $(wildcard ../*.o)
 
 SOURCE := $(wildcard *.cc)
 TARGETS := $(patsubst %.cc, %, $(SOURCE))
