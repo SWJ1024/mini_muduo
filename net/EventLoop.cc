@@ -3,6 +3,7 @@
 #include "Poller.h"
 #include "TimerQueue.h"
 #include <sys/eventfd.h>
+#include <algorithm>
 
 const int kPollTimeMs = 10000;
 

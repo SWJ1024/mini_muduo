@@ -1,10 +1,15 @@
-objects := $(wildcard ../*.cc ../../base/*.o)
+objects := $(wildcard ../*.o ../../base/*.o ../../web/*.cc)
 
-SOURCE := $(wildcard *.cc)
-TARGETS := $(patsubst %.cc, %, $(SOURCE))
+#SOURCE := $(wildcard *.cc)
+#TARGETS := $(patsubst %.cc, %, $(SOURCE))
 
 
-all : EventLoop_unittest MyTimerTest03 MyTimerTest04 TimerQueue_unittest
+all : InetAddress_unittest #EventLoop_unittest MyTimerTest03 MyTimerTest04 TimerQueue_unittest
+
+
+InetAddress_unittest : InetAddress_unittest.cc $(objects)
+	g++ InetAddress_unittest.cc $(objects) -o InetAddress_unittest.out -pthread -std=c++17
+
 
 EventLoop_unittest : EventLoop_unittest.cc $(objects)
 	g++ EventLoop_unittest.cc $(objects) -o EventLoop_unittest.out -pthread -std=c++17

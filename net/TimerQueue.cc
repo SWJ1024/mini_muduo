@@ -33,7 +33,7 @@ void resetTimerfd(int timerfd, Timestamp expiration) {
 void readTimerfd(int timerfd, Timestamp now) {
 	uint64_t howmany;
 	ssize_t n = read(timerfd, &howmany, sizeof howmany);
-	printf("TimerQueue::handleRead %lu at %s\n", howmany, now.toString().c_str());
+	//printf("TimerQueue::handleRead %lu at %s\n", howmany, now.toString().c_str());
 	if (n != sizeof howmany) {
 		printf("error in readTimerfd  TimerQueue.cc\n");
 	}

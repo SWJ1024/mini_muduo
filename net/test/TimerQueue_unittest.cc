@@ -55,10 +55,10 @@ int main()
   }
   sleep(1);
   {
-  //  EventLoopThread loopThread;
-  //  EventLoop* loop = loopThread.startLoop();
-  //  loop->runAfter(2, printTid);
-  //  sleep(3);
-  //  print("thread loop exits");
+    EventLoopThread loopThread;
+    EventLoop* loop = loopThread.startLoop();
+    loop->runAfter(2, printTid);
+    sleep(3);
+    print("thread loop exits");
   }
 }

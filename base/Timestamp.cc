@@ -16,7 +16,7 @@ string Timestamp::toString() const {
     int64_t s = microSeconds / M;
     int64_t us = microSeconds % M;
     //snprintf(buf, sizeof(buf), "%" PRId64 ".%06" PRId64 "", s, ms);
-    snprintf(buf, sizeof(buf), "%ld %ld\n", s, us);
+    snprintf(buf, sizeof(buf), "%ld.%ld", s, us);
     return buf;
 }
 

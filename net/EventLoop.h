@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 #include <atomic>
-
+#include <boost/any.hpp>
 
 class Channel;
 class Poller;
@@ -50,13 +50,13 @@ public:
 	
 	static EventLoop* getEventLoopOfCurrentThread();
 
-/*
+
 	void setContext(const boost::any& context) {context_ = context;}
 	const boost::any& getContext() const {return context_;}
 	boost::any* getMutableContext() {return &context_;}
 
 	boost::any context_;
-   */
+   
 
 
 private:
