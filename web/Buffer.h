@@ -201,7 +201,7 @@ public:
 	size_t internalCapacity() const {return buffer_.capacity();}
 
 	void prepend(const void *data, size_t len) {
-		assert(len <= prependableBytes());
+		assert(len <= prepandableBytes());
 		readerIndex_ -= len;
 		const char* d = static_cast<const char*> (data);
 		std::copy(d, d+len, begin()+readerIndex_);

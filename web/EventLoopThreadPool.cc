@@ -12,6 +12,7 @@ EventLoopThreadPool::EventLoopThreadPool(EventLoop* baseLoop, const string& name
 {
 }
 
+EventLoopThreadPool::~EventLoopThreadPool() {}
 
 void EventLoopThreadPool::start(const ThreadInitCallback& cb) {
 	assert(!started_);

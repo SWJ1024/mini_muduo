@@ -4,8 +4,22 @@ objects := $(wildcard ../*.o ../../base/*.o ../../web/*.cc)
 #TARGETS := $(patsubst %.cc, %, $(SOURCE))
 
 
-all : InetAddress_unittest #EventLoop_unittest MyTimerTest03 MyTimerTest04 TimerQueue_unittest
+all : InetAddress_unittest TcpClient_reg1 TcpClient_reg2 TcpClient_reg3 EchoClient_unittest #EventLoop_unittest MyTimerTest03 MyTimerTest04 TimerQueue_unittest
 
+
+EchoClient_unittest : EchoClient_unittest.cc $(objects)
+	g++ EchoClient_unittest.cc $(objects) -o EchoClient_unittest.out -pthread -std=c++17
+
+TcpClient_reg1 : TcpClient_reg1.cc $(objects)
+	g++ TcpClient_reg1.cc $(objects) -o TcpClient_reg1.out -pthread -std=c++17
+
+
+TcpClient_reg2 : TcpClient_reg2.cc $(objects)
+	g++ TcpClient_reg2.cc $(objects) -o TcpClient_reg2.out -pthread -std=c++17
+
+	
+TcpClient_reg3 : TcpClient_reg3.cc $(objects)
+	g++ TcpClient_reg3.cc $(objects) -o TcpClient_reg3.out -pthread -std=c++17
 
 InetAddress_unittest : InetAddress_unittest.cc $(objects)
 	g++ InetAddress_unittest.cc $(objects) -o InetAddress_unittest.out -pthread -std=c++17

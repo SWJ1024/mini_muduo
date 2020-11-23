@@ -38,6 +38,7 @@ bool Socket::getTcpInfoString(char* buf, int len) const {
 }
 
 void Socket::listen() {
+	printf("i am in listen\n");
 	sockets::listenOrDie(sockfd_);
 }
 

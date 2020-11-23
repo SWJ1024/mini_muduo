@@ -8,13 +8,14 @@
 #include "SocketOps.h"
 #include "Buffer.h"
 
-void defaultConnectionCallback(const TcpConnectionPtr& conn) {
+
+void defaultTcpServerConnectionCallback(const TcpConnectionPtr& conn) {
 	std::cout << conn->localAddress().toIpPort() << " -> "
 		      << conn->peerAddress().toIpPort() << " is "
 			  << (conn->connected() ? "UP" : "DOWN") << "\n";
 }
 
-void defaultMessageCallback(const TcpConnectionPtr&, Buffer* buf, Timestamp) {
+void defaultTcpServerMessageCallback(const TcpConnectionPtr&, Buffer* buf, Timestamp) {
 	buf->retrieveAll();
 }
 
@@ -25,8 +26,8 @@ TcpServer::TcpServer(EventLoop *loop, const InetAddress& listenAddr, const strin
 	ipPort_(listenAddr.toIpPort()),
 	acceptor_(new Acceptor(loop, listenAddr, option == kReusePort)),
 	threadPool_(new EventLoopThreadPool(loop, name_)),
-	connectionCallback_(defaultConnectionCallback),	
-	messageCallback_(defaultMessageCallback),
+	connectionCallback_(defaultTcpServerConnectionCallback),	
+	messageCallback_(defaultTcpServerMessageCallback),
 	nextConnId_(1)
 {
 	acceptor_->setNewConnectionCallback(std::bind(&TcpServer::newConnection, this, std::placeholders::_1, std::placeholders::_2));

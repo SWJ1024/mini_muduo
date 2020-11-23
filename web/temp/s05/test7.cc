@@ -22,6 +22,5 @@ int main()
   Acceptor acceptor(&loop, listenAddr);
   acceptor.setNewConnectionCallback(newConnection);
   acceptor.listen();
-
   loop.loop();
 }

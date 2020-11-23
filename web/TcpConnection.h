@@ -7,6 +7,7 @@
 #include "../base/Timestamp.h"
 #include "Buffer.h"
 #include <boost/any.hpp>
+#include <iostream>
 class Channel;
 class EventLoop;
 class Socket;
@@ -19,6 +20,7 @@ typedef std::function<void (const TcpConnectionPtr&)> WriteCompleteCallback;
 typedef std::function<void (const TcpConnectionPtr&, Buffer*, Timestamp)> MessageCallback;
 typedef std::function<void (const TcpConnectionPtr&)> CloseCallback;
 typedef std::function<void (const TcpConnectionPtr&, size_t)> HighWaterMarkCallback;
+
 
 
 class TcpConnection : public std::enable_shared_from_this<TcpConnection>{

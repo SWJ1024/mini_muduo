@@ -1,23 +1,19 @@
-objects := $(wildcard ../*.cc ../../base/*.cc)
+objects := $(wildcard ../../*.o ../../../base/*.o ../../../net/*.o)
 
-SOURCE := $(wildcard *.cc)
-TARGETS := $(patsubst %.cc, %, $(SOURCE))
+all : test9 test10 test7 test8
+
+test7 : test7.cc $(objects)
+	g++ test7.cc $(objects) -o test7.out -pthread -g -std=c++17
+
+test8 : test8.cc $(objects)
+	g++ test8.cc $(objects) -o test8.out -pthread -g -std=c++17
 
 
-all : EventLoop_unittest MyTimerTest03 MyTimerTest04 TimerQueue_unittest
+test9 : test9.cc $(objects)
+	g++ test9.cc $(objects) -o test9.out -pthread -g -std=c++17
 
-EventLoop_unittest : EventLoop_unittest.cc $(objects)
-	g++ EventLoop_unittest.cc $(objects) -o EventLoop_unittest.out -pthread -std=c++17
-
-
-MyTimerTest03 : MyTimerTest03.cc $(objects)
-	g++ MyTimerTest03.cc $(objects) -o MyTimerTest03.out -pthread -std=c++17
-
-MyTimerTest04 : MyTimerTest04.cc $(objects)
-	g++ MyTimerTest04.cc $(objects) -o MyTimerTest04.out -pthread -std=c++17
-
-TimerQueue_unittest : TimerQueue_unittest.cc $(objects)
-	g++ TimerQueue_unittest.cc $(objects) -o TimerQueue_unittest.out -pthread -std=c++17
+test10 : test10.cc $(objects)
+	g++ test10.cc $(objects) -o test10.out -pthread -g -std=c++17
 
 :PHONY: clean
 clean:

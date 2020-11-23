@@ -1,0 +1,46 @@
+main(): pid = 6696
+TcpServer::newConnection [TCPSERVER] - new connection [TCPSERVER-0.0.0.0:9981#1] from 127.0.0.1:49386
+TcpConnection::ctor[TCPSERVER-0.0.0.0:9981#1] at 0x7fffddd9c5f0 fd=23
+onConnection(): tid=6697 new connection [TCPSERVER-0.0.0.0:9981#1] from 127.0.0.1:49386
+
+TcpServer::newConnection [TCPSERVER] - new connection [TCPSERVER-0.0.0.0:9981#2] from 127.0.0.1:49387
+TcpConnection::ctor[TCPSERVER-0.0.0.0:9981#2] at 0x7fffddd9d260 fd=24
+onConnection(): tid=6698 new connection [TCPSERVER-0.0.0.0:9981#2] from 127.0.0.1:49387
+
+TcpServer::newConnection [TCPSERVER] - new connection [TCPSERVER-0.0.0.0:9981#3] from 127.0.0.1:49388
+TcpConnection::ctor[TCPSERVER-0.0.0.0:9981#3] at 0x7fffddd9dee0 fd=25
+onConnection(): tid=6699 new connection [TCPSERVER-0.0.0.0:9981#3] from 127.0.0.1:49388
+
+TcpServer::newConnection [TCPSERVER] - new connection [TCPSERVER-0.0.0.0:9981#4] from 127.0.0.1:49389
+TcpConnection::ctor[TCPSERVER-0.0.0.0:9981#4] at 0x7fffddd9eb60 fd=26
+onConnection(): tid=6700 new connection [TCPSERVER-0.0.0.0:9981#4] from 127.0.0.1:49389
+
+fd = 23 state = kConnected
+onConnection(): tid=6697 connection [TCPSERVER-0.0.0.0:9981#1] is down
+
+TcpServer::removeConnectionInLoop [TCPSERVER] - connection TCPSERVER-0.0.0.0:9981#1
+TcpConnection::dtor[TCPSERVER-0.0.0.0:9981#1] at 0x7fffddd9c5f0 fd=23 state=kDisconnected
+TcpServer::newConnection [TCPSERVER] - new connection [TCPSERVER-0.0.0.0:9981#5] from 127.0.0.1:49390
+TcpConnection::ctor[TCPSERVER-0.0.0.0:9981#5] at 0x7fffddd9f7e0 fd=23
+onConnection(): tid=6701 new connection [TCPSERVER-0.0.0.0:9981#5] from 127.0.0.1:49390
+
+
+fd = 24 state = kConnected
+onConnection(): tid=6698 connection [TCPSERVER-0.0.0.0:9981#2] is down
+
+
+TcpServer::removeConnectionInLoop [TCPSERVER] - connection TCPSERVER-0.0.0.0:9981#2
+TcpConnection::dtor[TCPSERVER-0.0.0.0:9981#2] at 0x7fffddd9d260 fd=24 state=kDisconnected
+fd = 25 state = kConnected
+onConnection(): tid=6699 connection [TCPSERVER-0.0.0.0:9981#3] is down
+
+
+TcpServer::removeConnectionInLoop [TCPSERVER] - connection TCPSERVER-0.0.0.0:9981#3
+TcpConnection::dtor[TCPSERVER-0.0.0.0:9981#3] at 0x7fffddd9dee0 fd=25 state=kDisconnected
+fd = 26 state = kConnected
+onConnection(): tid=6700 connection [TCPSERVER-0.0.0.0:9981#4] is down
+
+
+TcpServer::removeConnectionInLoop [TCPSERVER] - connection TCPSERVER-0.0.0.0:9981#4
+TcpConnection::dtor[TCPSERVER-0.0.0.0:9981#4] at 0x7fffddd9eb60 fd=26 state=kDisconnected
+fd = 2

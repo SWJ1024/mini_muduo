@@ -2,6 +2,7 @@
 #define MUDUO_WEB_EVENTLOOPTHREADPOOL_H
 #include <memory>
 #include <string>
+#include <vector>
 #include <functional>
 using std::string;
 
@@ -14,7 +15,8 @@ public:
 	using ThreadInitCallback = std::function<void(EventLoop*)>;
 
 	EventLoopThreadPool(EventLoop*, const string&);
-	~EventLoopThreadPool() {}
+	//~EventLoopThreadPool() {}
+	~EventLoopThreadPool();
 
 	void setThreadNum(int number) {numThread_ = number;}
 	void start(const ThreadInitCallback& cb = ThreadInitCallback());

@@ -44,6 +44,7 @@ void Acceptor::handleRead() {
 	loop_->assertInLoopThread();
 	InetAddress peerAddr;
 	int connfd = acceptSocket_.accept(&peerAddr);
+	printf("i am here\n");
 	if (connfd >= 0) {
 		if (newConnectionCallback_) newConnectionCallback_(connfd, peerAddr);
 		else sockets::close(connfd);
